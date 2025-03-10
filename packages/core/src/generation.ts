@@ -385,7 +385,9 @@ export async function generateText({
         console.error("generateText context is empty");
         return "";
     }
-
+    console.log(" *** GENERATING TEXT...")
+    console.log("*** EVALUATORS:", runtime.evaluators)
+    console.log(" *** CONTEXT:", context)
     elizaLogger.log("Generating text...");
 
     elizaLogger.info("Generating text with options:", {

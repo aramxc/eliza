@@ -1,72 +1,58 @@
-# @elizaos/plugin-bootstrap
+# @elizaos/plugin-devschool
 
-A plugin providing core functionality and basic actions for ElizaOS agents.
+A plugin demonstrating how to build custom actions and providers for ElizaOS agents, created as part of the [AI Agent Dev School 2](https://www.youtube.com/watch?v=XenGeAcPAQo) tutorial series.
 
 ## Description
 
-The Bootstrap plugin enables fundamental agent behaviors including conversation management, room interactions, and fact tracking. It provides essential actions and evaluators that form the foundation of agent interactions.
+The News plugin showcases how to build custom actions and providers in the ElizaOS framework. It implements a news fetching system using the NewsAPI service and demonstrates core plugin development concepts.
 
 ## Installation
 
 ```bash
-pnpm install @elizaos/plugin-bootstrap
+pnpm install @elizaos/plugin-news
 ```
 
 ## Features
 
-### 1. Conversation Management
+### 1. News Actions
 
-- NONE action for basic responses
-- CONTINUE action for follow-ups
-- IGNORE action for appropriate disengagement
-- Built-in conversation flow control
+- CURRENT_NEWS action for fetching latest news
+- Configurable search terms
+- Integration with NewsAPI
+- Automatic news summary generation
 
-### 2. Room Control
+### 2. News Provider
 
-- Follow/Unfollow room functionality
-- Mute/Unmute capabilities
-- Automatic engagement level tracking
-- Smart participation management
+- Manages news article caching
+- Handles API rate limiting
+- Provides formatted news responses
+- Maintains search history
 
-### 3. Fact Management
+## Implementation Details
 
-- Automatic fact extraction
-- Categorization of claims
-- Deduplication of known information
-- Support for multiple fact types:
-    - Permanent facts
-    - Status updates
-    - Opinions
-    - Biographical information
+### News Action
 
-### 4. Goal Tracking
+The plugin implements a `CURRENT_NEWS` action that:
+- Accepts user queries for news topics
+- Connects to the NewsAPI endpoint (https://newsapi.org/v2)
+- Returns formatted news summaries
+- Stores results in agent memory
 
-- Track objective progress
-- Update goal statuses
-- Monitor completion states
-- Automatic progress evaluation
+Example usage:
+```typescript
+// User query examples
+"What's the latest news about Bitcoin?"
+"Can you show me current Bitcoin news?"
+"Tell me what's happening with Bitcoin"
+```
 
-## Providers
+### Provider Implementation
 
-### 1. Boredom Provider
-
-- Tracks engagement levels
-- Provides status messages
-- Monitors conversation quality
-- Adjusts participation accordingly
-
-### 2. Facts Provider
-
-- Manages fact database
-- Retrieves relevant information
-- Formats fact summaries
-- Maintains fact context
-
-### 3. Time Provider
-
-- Provides UTC timestamps
-- Human-readable formatting
-- Time-based operation support
+The news provider demonstrates:
+- State management
+- API integration
+- Response formatting
+- Memory storage patterns
 
 ## Development
 

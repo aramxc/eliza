@@ -2,6 +2,8 @@ import type { IAgentRuntime, Memory, Provider, State } from "@elizaos/core";
 
 export const randomEmotionProvider: Provider = {
     get: async (_runtime: IAgentRuntime, _message: Memory, _state: State) => {
+        const agentName = _state?.agentName || "The agent";
+        
         const emotions = {
             joy: "{{agentName}} is feeling a surge of pure happiness and delight",
             contemplative: "{{agentName}} is in a thoughtful, reflective state of mind",
@@ -18,6 +20,6 @@ export const randomEmotionProvider: Provider = {
         const emotionKeys = Object.keys(emotions);
         const randomEmotion = emotionKeys[Math.floor(Math.random() * emotionKeys.length)];
         
-        return emotions[randomEmotion];
+        return emotions[randomEmotion].replace("{{agentName}}", agentName);
     },
 };

@@ -23,7 +23,7 @@ import {
 import { defaultCharacter } from "./defaultCharacter.ts";
 
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
-import newsPlugin from "@elizaos/plugin-news";
+import devschoolPlugin from "../../packages/plugin-devschool";
 import JSON5 from "json5";
 
 import fs from "fs";
@@ -650,7 +650,7 @@ export async function createAgent(
         evaluators: [],
         character,
         // character.plugins are handled when clients are added
-        plugins: [bootstrapPlugin, newsPlugin].flat().filter(Boolean),
+        plugins: [bootstrapPlugin, devschoolPlugin].flat().filter(Boolean),
         providers: [],
         managers: [],
         fetch: logFetch,
