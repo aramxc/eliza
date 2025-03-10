@@ -149,6 +149,9 @@ importers:
       '@elizaos/plugin-bootstrap':
         specifier: workspace:*
         version: link:../packages/plugin-bootstrap
+      '@elizaos/plugin-news':
+        specifier: workspace:*
+        version: link:../packages/plugin-news
       '@types/node':
         specifier: ^22.13.5
         version: 22.13.5
@@ -370,6 +373,9 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      lucide-react:
+        specifier: ^0.477.0
+        version: 0.477.0(react@18.3.1)
       lunr:
         specifier: 2.3.9
         version: 2.3.9
@@ -597,6 +603,22 @@ importers:
   packages/dynamic-imports: {}
 
   packages/plugin-bootstrap:
+    dependencies:
+      '@elizaos/core':
+        specifier: workspace:*
+        version: link:../core
+      whatwg-url:
+        specifier: 7.1.0
+        version: 7.1.0
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.5
+        version: 22.13.5
+      tsup:
+        specifier: 8.3.5
+        version: 8.3.5(@swc/core@1.11.4(@swc/helpers@0.5.15))(jiti@1.21.7)(postcss@8.5.3)(typescript@5.8.2)(yaml@2.7.0)
+
+  packages/plugin-news:
     dependencies:
       '@elizaos/core':
         specifier: workspace:*
@@ -8299,6 +8321,11 @@ packages:
 
   lucide-react@0.469.0:
     resolution: {integrity: sha512-28vvUnnKQ/dBwiCQtwJw7QauYnE7yd2Cyp4tTTJpvglX4EMpbflcdBgrgToX2j71B3YvugK/NH3BGUk+E/p/Fw==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  lucide-react@0.477.0:
+    resolution: {integrity: sha512-yCf7aYxerFZAbd8jHJxjwe1j7jEMPptjnaOqdYeirFnEy85cNR3/L+o0I875CYFYya+eEVzZSbNuRk8BZPDpVw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -22441,6 +22468,10 @@ snapshots:
   lucide-react@0.469.0(react@19.0.0):
     dependencies:
       react: 19.0.0
+
+  lucide-react@0.477.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   lunr-languages@1.14.0: {}
 

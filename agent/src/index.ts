@@ -23,6 +23,7 @@ import {
 import { defaultCharacter } from "./defaultCharacter.ts";
 
 import { bootstrapPlugin } from "@elizaos/plugin-bootstrap";
+import newsPlugin from "@elizaos/plugin-news";
 import JSON5 from "json5";
 
 import fs from "fs";
@@ -397,7 +398,7 @@ async function handlePluginImporting(plugins: string[]) {
                         "Plugin"; // Assumes plugin function is camelCased with Plugin suffix
                     if (
                         !importedPlugin[functionName] &&
-                        !importedPlugin.default
+                        !importedPlugin
                     ) {
                         elizaLogger.warn(
                             plugin,
@@ -406,7 +407,7 @@ async function handlePluginImporting(plugins: string[]) {
                         );
                     }
                     return {
-                        ...(importedPlugin.default ||
+                        ...(importedPlugin||
                             importedPlugin[functionName]),
                         npmName: plugin,
                     };
@@ -649,7 +650,7 @@ export async function createAgent(
         evaluators: [],
         character,
         // character.plugins are handled when clients are added
-        plugins: [bootstrapPlugin].flat().filter(Boolean),
+        plugins: [bootstrapPlugin, newsPlugin].flat().filter(Boolean),
         providers: [],
         managers: [],
         fetch: logFetch,
